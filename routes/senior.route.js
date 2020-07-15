@@ -6,13 +6,27 @@ router.get("/", (req, res) => {
 })
 
 router.post("/create", async (req, res) => {
-
     try {
-        let { name, quantity, deliveryDate } = req.body;
-        let items = { items : [{name, quantity}], deliveryDate };
-        
+        console.log(req.body);
+        let {
+            name,
+            quantity,
+            deliveryDate
+        } = req.body;
+        let items = []
+        for (let index = 0; index < quantity.length; index++) {
+            items.push({
+                name: name[index],
+                quantity: quantity[index],
+            })
+        }
+        // let items = { items : [{name, quantity}], deliveryDate };
         console.log(items);
-        let list = await new List(items);
+        let list = await new List({
+            items,
+            deliveryDate,
+            status: "0"
+        });
         let savedList = await list.save();
         if (savedList) {
             res.redirect("/");
