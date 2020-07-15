@@ -59,8 +59,8 @@ server.use(function (request, response, next) {
 
 // routes
 server.use("/auth", require("./routes/auth.route"));
-server.use("/admin", require("./routes/admin.route"));
-server.use("/senior", require("./routes/helper.route"));
+server.use("/", require("./routes/admin.route"));
+server.use("/senior", require("./routes/senior.route"));
 server.use("/helper", require("./routes/helper.route"));
 
 

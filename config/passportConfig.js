@@ -41,28 +41,36 @@ passport.deserializeUser(function (id, done) {
  * there's no user.
  */
 passport.use(
-  new LocalStrategy({
-          usernameField: "phone",
-          passwordField: "password"
-      },
-      function (phone, password, done) {
-        User.findOne({
-            phone: phone
-        }, function (err, user) {
-            if (err) {return done(err);}
+    new LocalStrategy({
+            usernameField: "phone",
+            passwordField: "password"
+        },
+        function (phone, password, done) {
+            User.findOne({
+                phone: phone
+            }, function (err, user) {
+                if (err) {
+                    return done(err);
+                }
 
-            // If no user is found // TODO. remove flash message for now
-            if (!user) {return done(null, false, { message: 'No user found'});
-            }
+                // If no user is found // TODO. remove flash message for now
+                if (!user) {
+                    return done(null, false, {
+                        message: 'No user found'
+                    });
+                }
 
-            // Check if the password is correct
-            if (!user.validPassword(password)) {return done(null, false, { message: 'Wrong password'});
-            }
+                // Check if the password is correct
+                if (!user.validPassword(password)) {
+                    return done(null, false, {
+                        message: 'Wrong password'
+                    });
+                }
 
-            return done(null, user);
-        });
-    }
-  )
+                return done(null, user);
+            });
+        }
+    )
 );
 
 // export the Passport configuration from this module

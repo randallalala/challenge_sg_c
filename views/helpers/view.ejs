@@ -1,6 +1,15 @@
-<h2>Lists visible to Helpers</h2>
-<% lists.forEach((list)=> { %>
-  <% list.forEach((item)=> { %>
-      <li><%= item %></li>
-    <% }) %>
-<% }) %>
+<div class="container mt-3">
+
+  <h2>Lists visible to Helpers</h2>
+  <% lists.forEach((list)=> { %>
+    <div class="card">
+      <div class="card-body">
+        <li><%= list.items %></li>
+        <li>Expected Delivery Date: <%= list.deliveryDate %></li>
+      </div>
+    </div>
+
+
+  <% }) %>
+
+</div>

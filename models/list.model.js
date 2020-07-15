@@ -3,18 +3,14 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 
 const listSchema = new Schema({
-    items: [String],
-    helper: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-    senior: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-    },
-    isFree: {
-        type: Boolean,
-        default: true,
+    items: [{
+        name: String,
+        quantity: Number,
+    }],
+    deliveryDate: String,
+    status: {
+        type: String,
+        enum: ["0", "1", "2"],  // 2 done 1 delivering 0 not accepted yet
     },
 });
 
