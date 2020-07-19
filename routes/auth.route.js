@@ -2,7 +2,8 @@ const router = require("express").Router();
 const User = require("../models/user.model");
 const passport = require("../config/passportConfig");
 const isLoggedIn = require("../config/signinBlocker");
-
+// const User = require("../models/user.model");
+// const List = require("../models/list.model");
 
 //-- Signup route
 router.get("/signup", async (req, res) => {
@@ -10,8 +11,7 @@ router.get("/signup", async (req, res) => {
 })
 
 router.post("/signup", async (req, res) => {
-
-    console.log(req.body);
+    // console.log(req.body);
     try {
         let {
             name,
@@ -30,7 +30,7 @@ router.post("/signup", async (req, res) => {
             name,
             address,
             age,
-            phone,
+                phone,
             isAdmin,
             isSenior,
             isHelper,

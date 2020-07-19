@@ -9,8 +9,21 @@ const listSchema = new Schema({
     deliveryDate: String,
     status: {
         type: String,
-        enum: ["0", "1", "2"],  // 2 done 1 delivering 0 not accepted yet
+        enum: ["free", "inProgress", "fulfilled"], // 2 done 1 delivering 0 not accepted yet
+        default: "free",
     },
+
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+    },
+
+    completedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+    },
+
+    // timestamps: true
 });
 
 

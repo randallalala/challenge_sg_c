@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const List = require("../models/list.model");
+// const isSignedIn = require("../config/signinBlocker");
+// const User = require("../models/user.model");
+// const moment = require("moment");
 
 router.get("/", (req, res) => {
     res.render("seniors/create");

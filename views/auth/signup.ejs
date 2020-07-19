@@ -1,36 +1,47 @@
-<div class="container mt-3">
-    <h2>New User Signup</h2>
-
-    <form action="/auth/signup" method="post">
-        <div>
-            <label>Name</label>
-            <input name="name" placeholder="John" />
+<div class="container">
+    <form action="/auth/signup" method="POST">
+        <div class="row mb-3">
+            <div class="col-6">
+                First Name
+                <input name="firstname" class="form-control" placeholder="John/Jane" />
+            </div>
+            <div class="col-6">
+                Last Name
+                <input name="lastname" class="form-control" placeholder="Doe" />
+            </div>
         </div>
-        <div>
-            <label>Address</label>
-            <input name="address" placeholder="platform 9-3/4" />
+        <div class="row mb-3">
+            <div class="col-12">
+                <label for="">Age</label>
+                <input name="age" class="form-control" placeholder="20" type="number" />
+            </div>
         </div>
-        <div>
-            <label>Age</label>
-            <input name="age" type="number" placeholder="13.." />
+        <div class="row mb-3">
+            <div class="col-12">
+                <label>Address</label>
+                <input name="adress" class="form-control" placeholder="20" type="text" />
+            </div>
         </div>
-        <div>
-            <label>Phone</label>
-            <input name="phone" type="number" placeholder="8133.." />
+        <div class="row mb-3">
+            <div class="col-6">
+                Senior
+                <input name="role" type="radio" class="form-control" value="senior" />
+            </div>
+            <div class="col-6">
+                Helper
+                <input name="role" type="radio" class="form-control" value="helper" />
+            </div>
         </div>
-        <div>
-            <label>Password</label>
-            <input name="password" type="password" placeholder="******" />
+        <div class="row mb-3">
+            <div class="col-6">
+                <label>Phone</label>
+                <input name="phone" class="form-control" placeholder="8133.." />
+            </div>
+            <div class="col-6">
+                <label>Password</label>
+                <input name="password" type="password" class="form-control" placeholder="*******" />
+            </div>
         </div>
-        <div>
-            Hooman Type <select name="hoomanType">
-                <option value="">Select One</option>
-                <option value="Admin"> Admin </option>
-                <option value="Senior"> Senior </option>
-                <option value="Helper"> Helper </option>
-            </select>
-        </div>
-        <button type="submit">Create User</button>
+        <button class="btn btn-primary">Sign Up</button>
     </form>
 </div>
-
